@@ -1,0 +1,131 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{7FF146DB-7414-4DDA-BF3A-AAD37387A4B2}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Com.Ddlev.Weixin</RootNamespace>
+    <AssemblyName>Com.Ddlev.Weixin</AssemblyName>
+    <TargetFrameworkVersion>v4.6</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Newtonsoft.Json, Version=9.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\Net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="BaseClass\BaseErr.cs" />
+    <Compile Include="BaseClass\BaseMethod.cs" />
+    <Compile Include="BaseClass\BaseResponse.cs" />
+    <Compile Include="BaseClass\BusinessLogic.cs" />
+    <Compile Include="BaseClass\MsgProperties.cs" />
+    <Compile Include="BaseClass\ResultCode.cs" />
+    <Compile Include="BaseClass\returnCode.cs" />
+    <Compile Include="BaseClass\WeixinBase.cs" />
+    <Compile Include="Base\BaseConfig.cs" />
+    <Compile Include="Config.cs" />
+    <Compile Include="High\Config.cs" />
+    <Compile Include="High\Customer.cs" />
+    <Compile Include="High\HightToken.cs" />
+    <Compile Include="High\Menu\Create.cs" />
+    <Compile Include="High\Menu\Delete.cs" />
+    <Compile Include="High\Menu\Get.cs" />
+    <Compile Include="High\Menu\Menu.cs" />
+    <Compile Include="High\OAuth2\AccessToken.cs" />
+    <Compile Include="High\OAuth2\Authorize.cs" />
+    <Compile Include="High\Pay\Config.cs" />
+    <Compile Include="High\Pay\coupon.cs" />
+    <Compile Include="High\Pay\MicroPay.cs" />
+    <Compile Include="High\Pay\OrderPara.cs" />
+    <Compile Include="High\Pay\OrderQuery.cs" />
+    <Compile Include="High\Pay\PayBack.cs" />
+    <Compile Include="High\Pay\PayBase\OrderParaComm.cs" />
+    <Compile Include="High\Pay\PayBase\WXComm.cs" />
+    <Compile Include="High\Pay\RedPack.cs" />
+    <Compile Include="High\Pay\Refund.cs" />
+    <Compile Include="High\Pay\Sandbox\Config.cs" />
+    <Compile Include="High\Pay\Sandbox\coupon.cs" />
+    <Compile Include="High\Pay\Sandbox\getsignkey.cs" />
+    <Compile Include="High\Pay\Sandbox\unifiedorder.cs" />
+    <Compile Include="High\Pay\Transfers.cs" />
+    <Compile Include="High\Pay\Unifiedorder\Android_Info.cs" />
+    <Compile Include="High\Pay\Unifiedorder\IH5_Info.cs" />
+    <Compile Include="High\Pay\Unifiedorder\IOS_Info.cs" />
+    <Compile Include="High\Pay\Unifiedorder\UOrderBase.cs" />
+    <Compile Include="High\Pay\Unifiedorder\unifiedorder.cs" />
+    <Compile Include="High\Pay\Unifiedorder\Wap_Info.cs" />
+    <Compile Include="High\Qrcode.cs" />
+    <Compile Include="High\ShakeAround\BindPage.cs" />
+    <Compile Include="High\ShakeAround\DeletePage.cs" />
+    <Compile Include="High\ShakeAround\Edit.cs" />
+    <Compile Include="High\ShakeAround\Add.cs" />
+    <Compile Include="High\ShakeAround\ShakeAroundPage.cs" />
+    <Compile Include="High\ShakeAround\Upload.cs" />
+    <Compile Include="High\Template.cs" />
+    <Compile Include="High\UploadAndDownload.cs" />
+    <Compile Include="High\User.cs" />
+    <Compile Include="High\Wxa\Snsscodesession.cs" />
+    <Compile Include="High\Wxa\Template.cs" />
+    <Compile Include="High\Wxa\UserInfo.cs" />
+    <Compile Include="High\Wxa\WxaCode.cs" />
+    <Compile Include="High\WxJs.cs" />
+    <Compile Include="IFace\IConfig.cs" />
+    <Compile Include="IFace\IMethod.cs" />
+    <Compile Include="IFace\IRequest.cs" />
+    <Compile Include="IFace\IResponse.cs" />
+    <Compile Include="Method\Execute.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Com.Ddlev.Base\Com.Ddlev.Base.csproj">
+      <Project>{f03cbdd9-b029-4d4e-b89e-f4596f37e08d}</Project>
+      <Name>Com.Ddlev.Base</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Com.Ddlev.Encrypt\Com.Ddlev.Cryptography.csproj">
+      <Project>{ebe88e3a-85fc-446c-bb3a-ab2421153a48}</Project>
+      <Name>Com.Ddlev.Cryptography</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

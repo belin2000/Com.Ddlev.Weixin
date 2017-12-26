@@ -1,0 +1,10 @@
+I:\svn项目\comdll\Com.Ddlev.Weixin\bin\Debug\Com.Ddlev.Weixin.dll
+I:\svn项目\comdll\Com.Ddlev.Weixin\bin\Debug\Com.Ddlev.Weixin.pdb
+I:\svn项目\comdll\Com.Ddlev.Weixin\bin\Debug\Com.Ddlev.Base.dll
+I:\svn项目\comdll\Com.Ddlev.Weixin\bin\Debug\Newtonsoft.Json.dll
+I:\svn项目\comdll\Com.Ddlev.Weixin\bin\Debug\Com.Ddlev.Base.pdb
+I:\svn项目\comdll\Com.Ddlev.Weixin\bin\Debug\Newtonsoft.Json.pdb
+I:\svn项目\comdll\Com.Ddlev.Weixin\bin\Debug\Newtonsoft.Json.xml
+I:\svn项目\comdll\Com.Ddlev.Weixin\obj\Debug\Com.Ddlev.Weixin.csprojResolveAssemblyReference.cache
+I:\svn项目\comdll\Com.Ddlev.Weixin\obj\Debug\Com.Ddlev.Weixin.dll
+I:\svn项目\comdll\Com.Ddlev.Weixin\obj\Debug\Com.Ddlev.Weixin.pdb

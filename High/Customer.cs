@@ -89,7 +89,7 @@ namespace Com.Ddlev.Weixin.High.CustomerClass
     public class ForText {
         string _content;
         /// <summary>
-        /// 文本消息内容
+        /// 文本消息内容(点击连接打开小程序页面 <a href="#" data-miniprogram-appid="appid" data-miniprogram-path="pages/index/index">点击跳小程序</a>)
         /// </summary>
         public string content 
         { 

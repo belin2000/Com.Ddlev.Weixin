@@ -98,6 +98,7 @@
     <Compile Include="High\Template.cs" />
     <Compile Include="High\UploadAndDownload.cs" />
     <Compile Include="High\User.cs" />
+    <Compile Include="High\Wxa\Customer.cs" />
     <Compile Include="High\Wxa\Snsscodesession.cs" />
     <Compile Include="High\Wxa\Template.cs" />
     <Compile Include="High\Wxa\UserInfo.cs" />

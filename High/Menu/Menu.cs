@@ -129,7 +129,7 @@ namespace Com.Ddlev.Weixin.High.Menu
         /// 菜单KEY值，用于消息接口推送，不超过128字节
         /// </summary>
         public string key { set; get; }
-        public MenuItemForClick(string _name, string _key,  List<IMenuItem> _sub_button=null) : base(_name, MenuType.miniprogram, _sub_button)
+        public MenuItemForClick(string _name, string _key, MenuType _miniprogram,  List<IMenuItem> _sub_button=null) : base(_name, _miniprogram, _sub_button)
         {
             this.key = _key;
         }
@@ -147,7 +147,7 @@ namespace Com.Ddlev.Weixin.High.Menu
         /// 调用新增永久素材接口返回的合法media_id
         /// </summary>
         public string media_id { set; get; }
-        public MenuItemForMedia(string _name, string _key,string _media_id, List<IMenuItem> _sub_button=null) : base(_name, MenuType.miniprogram, _sub_button)
+        public MenuItemForMedia(string _name, string _key,string _media_id, MenuType _miniprogram, List<IMenuItem> _sub_button=null) : base(_name, _miniprogram, _sub_button)
         {
             this.key = _key;
             this.media_id = _media_id;
@@ -163,7 +163,7 @@ namespace Com.Ddlev.Weixin.High.Menu
         /// 网页 链接，用户点击菜单可打开链接，不超过1024字节。 
         /// </summary>
         public string url { set; get; }
-        public MenuItemForView(string _name, string _url, List<IMenuItem> _sub_button=null) : base(_name, MenuType.miniprogram, _sub_button)
+        public MenuItemForView(string _name, string _url, List<IMenuItem> _sub_button=null) : base(_name, MenuType.view, _sub_button)
         {
             this.url = _url;
         }

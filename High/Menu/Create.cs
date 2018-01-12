@@ -25,7 +25,10 @@ namespace Com.Ddlev.Weixin.High.Menu
             HightToken token = new HightToken(c);
             string url = "https://api.weixin.qq.com/cgi-bin/menu/create?access_token=" + token.Token;
             JsonSerializerSettings jSetting = new JsonSerializerSettings();
-            string json = JsonConvert.SerializeObject(m);
+            jSetting.NullValueHandling = NullValueHandling.Ignore;
+            jSetting.DefaultValueHandling = DefaultValueHandling.Ignore;
+            string json = JsonConvert.SerializeObject(m,jSetting);
+            
             string s = BaseClass.BaseMethod.WebRequestPost(json, url, Encoding.UTF8);
             return Newtonsoft.Json.JsonConvert.DeserializeObject<CreateResponse>(s);
         }

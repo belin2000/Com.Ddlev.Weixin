@@ -49,6 +49,9 @@ namespace Com.Ddlev.Weixin.High.Pay
         public RefundRequest(Config _c)
         {
             this.c = _c;
+            this.appid = _c.AppID;
+            this.mch_id = _c.Mchid;
+            this.nonce_str = DateTime.Now.ToString("yyyyMMddHHmmssfff");
         }
         protected RefundResponse send(string url= "https://api.mch.weixin.qq.com/secapi/pay/refund")
         {

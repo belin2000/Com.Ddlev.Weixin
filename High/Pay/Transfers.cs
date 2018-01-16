@@ -57,6 +57,9 @@ namespace Com.Ddlev.Weixin.High.Pay
         public TransfersRequest(Config _c)
         {
             this.c = _c;
+            this.mchid = _c.Mchid;
+            this.mch_appid = c.AppID;
+            this.nonce_str = DateTime.Now.ToString("yyyyMMddHHmmssfff");
         }
         protected TransfersResponse send(string url= "https://api.mch.weixin.qq.com/mmpaymkttransfers/promotion/transfers")
         {

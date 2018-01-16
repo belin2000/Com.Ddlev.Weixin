@@ -25,6 +25,9 @@ namespace Com.Ddlev.Weixin.High.Pay
         public OrderQueryRequest(Config _c)
         {
             this.c = _c;
+            this.appid = _c.AppID;
+            this.mch_id = _c.Mchid;
+            this.nonce_str = DateTime.Now.ToString("yyyyMMddHHmmssfff");
         }
         protected OrderQueryResponse send(string url)
         {

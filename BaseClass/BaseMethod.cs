@@ -82,9 +82,9 @@ namespace Com.Ddlev.Weixin.BaseClass
         /// 对象转换为xml
         /// </summary>
         /// <param name="t"></param>
-        /// <param name="SpaceOut">null或者空值是否去掉该节点</param>
+        /// <param name="SpaceOut">null或者空值是否去掉该节点(默认为false)</param>
         /// <returns></returns>
-        public static string ObjToXml(Dictionary<string,string> t, bool SpaceOut)
+        public static string ObjToXml(Dictionary<string,string> t, bool SpaceOut=false)
         {
             StringBuilder sb = new StringBuilder();
             foreach (KeyValuePair<string, string> kvp in t)

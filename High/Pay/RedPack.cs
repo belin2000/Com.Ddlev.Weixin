@@ -55,6 +55,9 @@ namespace Com.Ddlev.Weixin.High.Pay
         public SendRedPack(Config _c)
         {
             this.c = _c;
+            this.mch_id = c.Mchid;
+            this.nonce_str = DateTime.Now.ToString("yyyyMMddHHmmssfff");
+            this.wxappid = c.AppID;
         }
         protected SendRedPackResponse send(string url="https://api.mch.weixin.qq.com/mmpaymkttransfers/sendredpack")
         {

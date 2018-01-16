@@ -61,6 +61,9 @@ namespace Com.Ddlev.Weixin.High.Pay.Unifiedorder
         public unifiedorderRequest(Config C)
         {
             this.c = C;
+            this.appid = c.AppID;
+            this.mch_id = c.Mchid;
+            this.nonce_str = DateTime.Now.ToString("yyyyMMddHHmmssfff");
         }
 
         /// <summary>

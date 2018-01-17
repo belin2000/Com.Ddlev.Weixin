@@ -23,7 +23,7 @@ namespace Com.Ddlev.Weixin.High.Menu
         public GetResponse send()
         {
             HightToken token = new HightToken(c);
-            string url = "https://api.weixin.qq.com/cgi-bin/menu/get?access_token=" + token.Token;
+            string url = "https://api.weixin.qq.com/cgi-bin/get_current_selfmenu_info?access_token=" + token.Token;
             string sb = BaseClass.BaseMethod.WebRequestGet(url, Encoding.UTF8);
             var res = Newtonsoft.Json.JsonConvert.DeserializeObject<GetResponse>(sb);
             return res;
@@ -31,7 +31,13 @@ namespace Com.Ddlev.Weixin.High.Menu
     }
     public class GetResponse : IFace.IResponse
     {
+        public int is_menu_open { set; get; }
         public string errcode { set; get; }
-        public Menu menu { set; get; }
+        public SelfMenu selfmenu_info { set; get; }
+    }
+
+    public class SelfMenu
+    {
+
     }
 }

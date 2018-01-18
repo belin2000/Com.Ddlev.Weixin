@@ -25,14 +25,14 @@ namespace Com.Ddlev.Weixin.High
         public HightToken(Config C,string _Token,int senum=3600)
         {
             this.c = C;
-            if (System.Web.HttpContext.Current.Cache.Get(c.AppID + "_HightToken") == null)
+            if (DataCacheConfig.GetHelper().Get(c.AppID + "_HightToken") == null)
             {
-                System.Web.HttpContext.Current.Cache.Add(c.AppID + "_HightToken", _Token, null, DateTime.Now.AddSeconds(Convert.ToInt32(senum)), System.Web.Caching.Cache.NoSlidingExpiration, System.Web.Caching.CacheItemPriority.Default, null);
+                DataCacheConfig.GetHelper().Set(c.AppID + "_HightToken", _Token, senum);
                 this.Token = _Token;
             }
             else
             {
-                this.Token = System.Web.HttpContext.Current.Cache.Get(c.AppID + "_HightToken").ToString();
+                this.Token = DataCacheConfig.GetHelper().Get(c.AppID + "_HightToken").ToString();
             }
         }
         /// <summary>
@@ -42,18 +42,18 @@ namespace Com.Ddlev.Weixin.High
         public HightToken(Config C)
         {
             this.c = C;
-            if (System.Web.HttpContext.Current.Cache.Get(c.AppID + "_HightToken") == null)
+            if (DataCacheConfig.GetHelper().Get(c.AppID + "_HightToken") == null)
             {
                 lock(iso)
                 {
-                    if (System.Web.HttpContext.Current.Cache.Get(c.AppID + "_HightToken") == null)
+                    if (DataCacheConfig.GetHelper().Get(c.AppID + "_HightToken") == null)
                     {
                         var rs = send();
                         this.Token = rs.access_token;
                     }
                 }
             }
-            this.Token = System.Web.HttpContext.Current.Cache.Get(C.AppID + "_HightToken").ToString();
+            this.Token = DataCacheConfig.GetHelper().Get(C.AppID + "_HightToken").ToString();
 
         }
 
@@ -67,7 +67,7 @@ namespace Com.Ddlev.Weixin.High
             var rs= send(url);
             if (!string.IsNullOrEmpty(rs.access_token) && rs.access_token != "")
             {
-                System.Web.HttpContext.Current.Cache.Add(c.AppID + "_HightToken", rs.access_token, null, DateTime.Now.AddSeconds(Convert.ToInt32(rs.expires_in)-200), System.Web.Caching.Cache.NoSlidingExpiration, System.Web.Caching.CacheItemPriority.Default, null);
+                DataCacheConfig.GetHelper().Set(c.AppID + "_HightToken", rs.access_token, (Convert.ToInt32(rs.expires_in) - 200));
             }
             return rs;
         }

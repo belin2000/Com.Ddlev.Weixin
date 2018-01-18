@@ -60,15 +60,14 @@ namespace Com.Ddlev.Weixin.High
         public string JsapiTicket(string actoken)
         {
             
-            if (System.Web.HttpContext.Current.Cache.Get(appId + "_JsapiTicket") == null)
+            if (DataCacheConfig.GetHelper().Get(appId + "_JsapiTicket") == null)
             {
                 string cb = BaseClass.BaseMethod.WebRequestGet("https://api.weixin.qq.com/cgi-bin/ticket/getticket?access_token=" + actoken + "&type=jsapi", System.Text.Encoding.UTF8);
                 var jo = Newtonsoft.Json.Linq.JObject.Parse(cb);
                 if (Convert.ToInt32(jo["errcode"]) == 0)
                 {
                     var ticket = jo["ticket"].ToString();
-                    System.Web.HttpContext.Current.Cache.Add(appId + "_JsapiTicket", ticket, null, DateTime.Now.AddSeconds(7000), System.Web.Caching.Cache.NoSlidingExpiration, System.Web.Caching.CacheItemPriority.Default, null);
-                    //ITA.WeiXin.BaseClass.BaseMethod.
+                    DataCacheConfig.GetHelper().Set(appId + "_JsapiTicket", ticket,7000);
                     return ticket;
                 }
                 else
@@ -78,7 +77,7 @@ namespace Com.Ddlev.Weixin.High
             }
             else
             {
-                return System.Web.HttpContext.Current.Cache.Get(appId + "_JsapiTicket").ToString();
+                return DataCacheConfig.GetHelper().Get(appId + "_JsapiTicket").ToString();
             }
         }
     }

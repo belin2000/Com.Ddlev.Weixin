@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
@@ -38,6 +38,7 @@
       <HintPath>..\..\..\Net45\Newtonsoft.Json.dll</HintPath>
     </Reference>
     <Reference Include="System" />
+    <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
     <Reference Include="System.Drawing" />
     <Reference Include="System.Web" />
@@ -58,6 +59,7 @@
     <Compile Include="BaseClass\WeixinBase.cs" />
     <Compile Include="Base\BaseConfig.cs" />
     <Compile Include="Config.cs" />
+    <Compile Include="DataCacheConfig.cs" />
     <Compile Include="High\Config.cs" />
     <Compile Include="High\Customer.cs" />
     <Compile Include="High\HightToken.cs" />
@@ -115,6 +117,10 @@
     <ProjectReference Include="..\Com.Ddlev.Base\Com.Ddlev.Base.csproj">
       <Project>{f03cbdd9-b029-4d4e-b89e-f4596f37e08d}</Project>
       <Name>Com.Ddlev.Base</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Com.Ddlev.DataCache\Com.Ddlev.DataCache.csproj">
+      <Project>{db3a42fa-db11-4c56-87e8-e61b8aea6062}</Project>
+      <Name>Com.Ddlev.DataCache</Name>
     </ProjectReference>
     <ProjectReference Include="..\Com.Ddlev.Encrypt\Com.Ddlev.Cryptography.csproj">
       <Project>{ebe88e3a-85fc-446c-bb3a-ab2421153a48}</Project>

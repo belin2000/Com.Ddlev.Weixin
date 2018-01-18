@@ -31,7 +31,7 @@ namespace Com.Ddlev.Weixin.High.Wxa
     /// <summary>
     /// 返回用户的相关信息,和User类一样
     /// </summary>
-    public class UserInfoResponse : User, IFace.IResponse
+    public class UserInfoResponse : User.User, IFace.IResponse
     {
     }
 }

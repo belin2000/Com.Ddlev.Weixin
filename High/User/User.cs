@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.Text;
 
 
-namespace Com.Ddlev.Weixin.High
+namespace Com.Ddlev.Weixin.High.User
 {
     /// <summary>
     /// 微信用户
@@ -121,6 +121,15 @@ namespace Com.Ddlev.Weixin.High
             get { return unionid_; }
         }
         /// <summary>
+        /// 公众号运营者对粉丝的备注，公众号运营者可在微信公众平台用户管理界面对粉丝添加备注
+        /// </summary>
+        public string remark { set; get; }
+        /// <summary>
+        /// 用户被打上的标签ID列表
+        /// </summary>
+        public List<long> tagid_list { set; get; }
+
+        /// <summary>
         /// 拉取用户信息（需用户关注）
         /// </summary>
         /// <param name="c"></param>
@@ -138,8 +147,7 @@ namespace Com.Ddlev.Weixin.High
             }
             else
             {
-                User u = new User();
-                u = (User)Newtonsoft.Json.JsonConvert.DeserializeObject(sb, u.GetType());
+                var u = Newtonsoft.Json.JsonConvert.DeserializeObject<User>(sb);
                 return u;
             }
         }
@@ -160,8 +168,7 @@ namespace Com.Ddlev.Weixin.High
             }
             else
             {
-                User u = new User();
-                u = (User)Newtonsoft.Json.JsonConvert.DeserializeObject(sb, u.GetType());
+                var u = Newtonsoft.Json.JsonConvert.DeserializeObject<User>(sb);
                 return u;
             }
         }

@@ -33,11 +33,7 @@ namespace Com.Ddlev.Weixin.High.Menu
     {
         public int is_menu_open { set; get; }
         public string errcode { set; get; }
-        public SelfMenu selfmenu_info { set; get; }
+        public Newtonsoft.Json.Linq.JObject selfmenu_info { set; get; }
     }
 
-    public class SelfMenu
-    {
-
-    }
 }

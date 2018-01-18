@@ -5,7 +5,7 @@ using System.Collections.Generic;
 using System.Text;
 
 
-namespace Com.Ddlev.Weixin.High
+namespace Com.Ddlev.Weixin.High.Qrcode
 {
     /// <summary>
     /// 带参数的二维码

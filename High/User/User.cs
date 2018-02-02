@@ -2,7 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Text;
-
+using System.Threading.Tasks;
 
 namespace Com.Ddlev.Weixin.High.User
 {
@@ -220,6 +220,11 @@ namespace Com.Ddlev.Weixin.High.User
         {
             string sb = BaseClass.BaseMethod.WebRequestGet(url, Encoding.UTF8);
             return Newtonsoft.Json.JsonConvert.DeserializeObject<UserResponse>(sb);
+        }
+
+        public async Task<UserResponse> sendasync()
+        {
+            return await Task.Run(() => { return send(); });
         }
     }
     public class UserResponse : User, IFace.IResponse

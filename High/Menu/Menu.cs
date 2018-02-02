@@ -191,5 +191,10 @@ namespace Com.Ddlev.Weixin.High.Menu
             this.appid = _appid;
             this.pagepath = _pagepath;
         }
+        public MenuItemForMiniprogram(string _name, string _url, BaseClass.MiniProgram mpro, List<IMenuItem> _sub_button=null) :base(_name, MenuType.miniprogram,_sub_button) {
+            this.url = _url;
+            this.appid = mpro.appid;
+            this.pagepath = mpro.pagepath;
+        }
     }
 }

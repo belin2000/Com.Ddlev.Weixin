@@ -74,6 +74,11 @@ namespace Com.Ddlev.Weixin.High.Pay
             string url = "https://api.mch.weixin.qq.com/secapi/pay/refund";
             return send(url);
         }
+
+        public async Task<RefundResponse> sendasync()
+        {
+            return await Task.Run(() => { return send(); });
+        }
     }
     /// <summary>
     /// 退款结果

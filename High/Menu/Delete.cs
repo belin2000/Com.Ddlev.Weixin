@@ -1,4 +1,6 @@
-﻿using System.Text;
+﻿using System;
+using System.Text;
+using System.Threading.Tasks;
 
 namespace Com.Ddlev.Weixin.High.Menu
 {
@@ -22,6 +24,11 @@ namespace Com.Ddlev.Weixin.High.Menu
             string url = "https://api.weixin.qq.com/cgi-bin/menu/delete?access_token=" + token.Token;
             string sb = BaseClass.BaseMethod.WebRequestGet(url, Encoding.UTF8);
             return Newtonsoft.Json.JsonConvert.DeserializeObject<DeleteResponse>(sb);
+        }
+
+        public async Task<DeleteResponse> sendasync()
+        {
+            return await Task.Run(() => { return send(); });
         }
     }
 

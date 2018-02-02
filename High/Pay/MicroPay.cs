@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading.Tasks;
 using System.Xml;
 
 namespace Com.Ddlev.Weixin.High.Pay
@@ -56,6 +57,11 @@ namespace Com.Ddlev.Weixin.High.Pay
             xmlDoc.LoadXml(bxml);
             BaseClass.BaseMethod.XmlToObj(xmlDoc, ucb);
             return ucb;
+        }
+
+        public async Task<MicroPayResponse> sendasync()
+        {
+            return await Task.Run(() => { return send(); });
         }
     }
     public class MicroPayResponse : BaseClass.BusinessLogic, IFace.IResponse

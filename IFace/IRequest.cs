@@ -13,6 +13,8 @@ namespace Com.Ddlev.Weixin.IFace
         /// </summary>
         /// <returns></returns>
         T send();
-        
+        Task<T> sendasync();
+
+
     }
 }

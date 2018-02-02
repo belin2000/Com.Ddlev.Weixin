@@ -178,4 +178,25 @@ namespace Com.Ddlev.Weixin.BaseClass
         /// </summary>
         snsapi_login = 3
     }
+
+    /// <summary>
+    /// 配置小程序的appid和页面（用于信息推送，菜单和模版）
+    /// </summary>
+    public class MiniProgram
+    {
+        /// <summary>
+        /// 小程序的appid （该小程序appid必须与发模板消息的公众号是绑定关联关系）
+        /// </summary>
+        public string appid { set; get; }
+        /// <summary>
+        /// 所需跳转到小程序的具体页面路径，支持带参数,（示例index?foo=bar）
+        /// </summary>
+        public string pagepath { set; get; }
+
+        public MiniProgram(string _appid="",string _pagepath="")
+        {
+            this.appid = _appid;
+            this.pagepath = _pagepath;
+        }
+    }
 }

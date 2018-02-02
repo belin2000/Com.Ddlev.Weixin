@@ -34,6 +34,12 @@ namespace Com.Ddlev.Weixin.High.User
             string url = "https://api.weixin.qq.com/cgi-bin/user/info/batchget?access_token=" + token.Token;
             return send(url);
         }
+
+        public async Task<UserInfoBatchResponse> sendasync()
+        {
+            return await Task.Run(() => { return send(); });
+        }
+
         public UserInfoBatchRequest(Config _c)
         {
             this.c = _c;

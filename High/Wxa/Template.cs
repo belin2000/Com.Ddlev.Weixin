@@ -2,10 +2,11 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading.Tasks;
 
 namespace Com.Ddlev.Weixin.High.Wxa
 {
-    public class TemplateRequest : Com.Ddlev.Weixin.High.TemplateRequest, IFace.IRequest<TemplateResponse>
+    public class TemplateRequest : High.TemplateRequest, IFace.IRequest<TemplateResponse>
     {
 
         /// <summary>
@@ -36,6 +37,10 @@ namespace Com.Ddlev.Weixin.High.Wxa
             string paramData = Newtonsoft.Json.JsonConvert.SerializeObject(this, st);
             var str = BaseClass.BaseMethod.WebRequestPost(paramData, "https://api.weixin.qq.com/cgi-bin/message/template/send?access_token=" + (new HightToken(c).Token), System.Text.Encoding.UTF8);
             return Newtonsoft.Json.JsonConvert.DeserializeObject<TemplateResponse>(str);
+        }
+        public new  async Task<TemplateResponse> sendasync()
+        {
+            return await Task.Run(() => { return send(); });
         }
     }
 }

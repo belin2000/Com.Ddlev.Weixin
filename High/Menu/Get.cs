@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading.Tasks;
 
 namespace Com.Ddlev.Weixin.High.Menu
 {
@@ -27,6 +28,11 @@ namespace Com.Ddlev.Weixin.High.Menu
             string sb = BaseClass.BaseMethod.WebRequestGet(url, Encoding.UTF8);
             var res = Newtonsoft.Json.JsonConvert.DeserializeObject<GetResponse>(sb);
             return res;
+        }
+
+        public async Task<GetResponse> sendasync()
+        {
+            return await Task.Run(() => { return send(); });
         }
     }
     public class GetResponse : IFace.IResponse

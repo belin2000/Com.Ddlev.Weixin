@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.Reflection;
 using System.Text;
 using System.Xml;
-
+using System.Threading.Tasks;
 
 namespace Com.Ddlev.Weixin.High.Pay.Unifiedorder
 {
@@ -94,6 +94,10 @@ namespace Com.Ddlev.Weixin.High.Pay.Unifiedorder
             return send(url);
         }
 
+        public async Task<unifiedorderResponse> sendasync()
+        {
+            return await Task.Run(() => { return send(); });
+        }
     }
 
     public class unifiedorderResponse: BaseClass.BusinessLogic, IFace.IResponse

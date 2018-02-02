@@ -82,6 +82,11 @@ namespace Com.Ddlev.Weixin.High.Pay
             string url = "https://api.mch.weixin.qq.com/mmpaymkttransfers/promotion/transfers";
             return send(url);
         }
+
+        public async Task<TransfersResponse> sendasync()
+        {
+            return await Task.Run(() => { return send(); });
+        }
     }
 
     public class TransfersResponse : BaseClass.BusinessLogic, IFace.IResponse
@@ -205,6 +210,10 @@ namespace Com.Ddlev.Weixin.High.Pay
             return send(url);
         }
 
+        public async Task<TransferInfoResponse> sendasync()
+        {
+            return await Task.Run(() => { return send(); });
+        }
     }
     public class TransferInfoResponse : BaseClass.BusinessLogic, IFace.IResponse
     {

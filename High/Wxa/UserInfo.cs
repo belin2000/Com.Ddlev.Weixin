@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading.Tasks;
 
 namespace Com.Ddlev.Weixin.High.Wxa
 {
@@ -26,6 +27,11 @@ namespace Com.Ddlev.Weixin.High.Wxa
         public UserInfoResponse send()
         {
             return Newtonsoft.Json.JsonConvert.DeserializeObject<UserInfoResponse>(BaseClass.BaseMethod.AESDecrypt(encryptedData, Convert.FromBase64String(session_key), Convert.FromBase64String(iv)));
+        }
+
+        public async Task<UserInfoResponse> sendasync()
+        {
+            return await Task.Run(() => { return send(); });
         }
     }
     /// <summary>

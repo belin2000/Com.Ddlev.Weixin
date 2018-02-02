@@ -116,6 +116,11 @@ namespace Com.Ddlev.Weixin.High.Wxa
             }
             return url+new HightToken(c).Token;
         }
+
+        public async Task<WxaCodeResponse> sendasync()
+        {
+            return await Task.Run(() => { return send(); });
+        }
     }
 
     

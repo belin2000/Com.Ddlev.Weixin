@@ -3,6 +3,8 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 using Com.Ddlev.Weixin.IFace;
+using System.Threading.Tasks;
+
 namespace Com.Ddlev.Weixin.High
 {
     /// <summary>
@@ -76,6 +78,11 @@ namespace Com.Ddlev.Weixin.High
             string json = BaseClass.BaseMethod.WebRequestGet(url, Encoding.Default);
             HightTokenResponse ht = Newtonsoft.Json.JsonConvert.DeserializeObject< HightTokenResponse>(json);
             return ht;
+        }
+
+        public async Task<HightTokenResponse> sendasync()
+        {
+            return await Task.Run(() => { return send(); });
         }
     }
 

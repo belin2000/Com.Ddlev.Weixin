@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading.Tasks;
 
 namespace Com.Ddlev.Weixin.High.OAuth2
 {
@@ -37,6 +38,11 @@ namespace Com.Ddlev.Weixin.High.OAuth2
         {
             string json = BaseClass.BaseMethod.WebRequestGet(url, Encoding.UTF8);
             return Newtonsoft.Json.JsonConvert.DeserializeObject<AccessTokenResponse>(json);
+        }
+
+        public async Task<AccessTokenResponse> sendasync()
+        {
+            return await Task.Run(() => { return send(); });
         }
     }
     public class AccessTokenResponse:BaseClass.BaseErr, IFace.IResponse

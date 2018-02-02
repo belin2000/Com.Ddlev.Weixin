@@ -3,7 +3,7 @@ using Newtonsoft.Json.Linq;
 using System;
 using System.Collections.Generic;
 using System.Text;
-
+using System.Threading.Tasks;
 
 namespace Com.Ddlev.Weixin.High.Qrcode
 {
@@ -45,6 +45,10 @@ namespace Com.Ddlev.Weixin.High.Qrcode
             return send(url);
         }
 
+        public async Task<QrcodeResponse> sendasync()
+        {
+            return await Task.Run(() => { return send(); });
+        }
     }
     /// <summary>
     /// 二维码详细信息

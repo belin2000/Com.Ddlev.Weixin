@@ -32,6 +32,12 @@ namespace Com.Ddlev.Weixin.High.Tags
             string url = "https://api.weixin.qq.com/cgi-bin/tags/getidlist?access_token=" + token.Token;
             return send(url);
         }
+
+        public async Task<UserTagIDResponse> sendasync()
+        {
+            return await Task.Run(() => { return send(); });
+        }
+
         public UserTagIDRequest(Config _c)
         {
             this.c = _c;

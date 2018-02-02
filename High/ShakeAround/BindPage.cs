@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading.Tasks;
 
 namespace Com.Ddlev.Weixin.High.ShakeAround
 {
@@ -36,6 +37,11 @@ namespace Com.Ddlev.Weixin.High.ShakeAround
             catch
             { }
             return sr;
+        }
+
+        public async Task<BindPageResponse> sendasync()
+        {
+            return await Task.Run(() => { return send(); });
         }
     }
 

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading.Tasks;
 
 namespace Com.Ddlev.Weixin.High.Wxa
 {
@@ -26,6 +27,11 @@ namespace Com.Ddlev.Weixin.High.Wxa
             string url = "https://api.weixin.qq.com/sns/jscode2session?appid=" + c.AppID + "&secret=" + c.SecretKey + "&js_code=" + code + "&grant_type=authorization_code";
             var back = BaseClass.BaseMethod.WebRequestGet(url, Encoding.UTF8);
             return Newtonsoft.Json.JsonConvert.DeserializeObject<SnsscodesessionResponse>(back);
+        }
+
+        public async Task<SnsscodesessionResponse> sendasync()
+        {
+            return await Task.Run(() => { return send(); });
         }
     }
     public class SnsscodesessionResponse : IFace.IResponse

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading.Tasks;
 using System.Xml;
 
 namespace Com.Ddlev.Weixin.High.Pay
@@ -81,7 +82,10 @@ namespace Com.Ddlev.Weixin.High.Pay
             return ucb;
         }
 
-
+        public async Task<couponResponse> sendasync()
+        {
+            return await Task.Run(() => { return send(); });
+        }
     }
 
     public class couponResponse: BaseClass.BusinessLogic,IFace.IResponse

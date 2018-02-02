@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading.Tasks;
 
 namespace Com.Ddlev.Weixin.High.ShakeAround
 {
@@ -25,6 +26,11 @@ namespace Com.Ddlev.Weixin.High.ShakeAround
             string posturl = "https://api.weixin.qq.com/shakearound/material/add?access_token=" + token.Token;
             string sb = BaseClass.BaseMethod.UploadFileByWebClient(posturl, filename);
             return Newtonsoft.Json.JsonConvert.DeserializeObject<UploadResponse>(sb);
+        }
+
+        public async Task<UploadResponse> sendasync()
+        {
+            return await Task.Run(() => { return send(); });
         }
     }
     public class UploadResponse : BaseClass.BaseErr, IFace.IResponse

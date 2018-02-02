@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 using System.Xml;
+using System.Threading.Tasks;
 
 namespace Com.Ddlev.Weixin.High.Pay
 {
@@ -51,6 +52,10 @@ namespace Com.Ddlev.Weixin.High.Pay
             return send(url);
         }
 
+        public async Task<OrderQueryResponse> sendasync()
+        {
+            return await Task.Run(() => { return send(); });
+        }
     }
     public class OrderQueryResponse : BaseClass.BusinessLogic,IFace.IResponse
     {

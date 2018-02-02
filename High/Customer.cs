@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Threading.Tasks;
 using Newtonsoft.Json.Linq;
 
 
@@ -31,11 +32,19 @@ namespace Com.Ddlev.Weixin.High
             string url = "https://api.weixin.qq.com/cgi-bin/message/custom/send?access_token=" + token.Token;
             return send(url);
         }
-        public CustomerResponse send(string url)
+        public  CustomerResponse send(string url)
         {
             string st = Newtonsoft.Json.JsonConvert.SerializeObject(t);
             string sb = BaseClass.BaseMethod.WebRequestPost(st, url, Encoding.UTF8);
             return Newtonsoft.Json.JsonConvert.DeserializeObject<CustomerResponse>(sb);
+        }
+        /// <summary>
+        /// 异步
+        /// </summary>
+        /// <returns></returns>
+        public async Task<CustomerResponse> sendasync()
+        {
+            return await Task.Run(() => { return send(); });
         }
     }
     public class CustomerResponse : BaseClass.BaseResponse, IFace.IResponse
@@ -371,5 +380,6 @@ namespace Com.Ddlev.Weixin.High.CustomerClass
             get { return _picurl; }
         }
     }
+
 
 }

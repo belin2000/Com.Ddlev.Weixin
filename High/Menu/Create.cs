@@ -1,5 +1,7 @@
 ﻿using Newtonsoft.Json;
 using System.Text;
+using System;
+using System.Threading.Tasks;
 
 namespace Com.Ddlev.Weixin.High.Menu
 {
@@ -31,6 +33,11 @@ namespace Com.Ddlev.Weixin.High.Menu
             
             string s = BaseClass.BaseMethod.WebRequestPost(json, url, Encoding.UTF8);
             return Newtonsoft.Json.JsonConvert.DeserializeObject<CreateResponse>(s);
+        }
+
+        public async Task<CreateResponse> sendasync()
+        {
+            return await Task.Run(() => { return send(); });
         }
     }
 

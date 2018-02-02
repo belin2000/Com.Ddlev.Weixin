@@ -81,6 +81,10 @@ namespace Com.Ddlev.Weixin.High.Pay
             return this.send(url);
         }
 
+        public async Task<SendRedPackResponse> sendasync()
+        {
+            return await Task.Run(() => { return send(); });
+        }
     }
     /// <summary>
     /// 发送红包的结果
@@ -155,6 +159,11 @@ namespace Com.Ddlev.Weixin.High.Pay
         {
             string url = "https://api.mch.weixin.qq.com/mmpaymkttransfers/gethbinfo";
             return send(url);
+        }
+
+        public async Task<GethbinfoResponse> sendasync()
+        {
+            return await Task.Run(() => { return send(); });
         }
     }
 

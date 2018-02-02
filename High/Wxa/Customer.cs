@@ -34,5 +34,10 @@ namespace Com.Ddlev.Weixin.High.Wxa
             string sc = BaseClass.BaseMethod.WebRequestPost(st, url, Encoding.UTF8);
             return Newtonsoft.Json.JsonConvert.DeserializeObject<CustomerResponse>(sc);
         }
+
+        public async Task<CustomerResponse> sendasync()
+        {
+            return await Task.Run(() => { return send(); });
+        }
     }
 }

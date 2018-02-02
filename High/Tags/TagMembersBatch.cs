@@ -36,6 +36,12 @@ namespace Com.Ddlev.Weixin.High.Tags
             string url = "https://api.weixin.qq.com/cgi-bin/tags/members/batchuntagging?access_token=" + token.Token;
             return send(url);
         }
+
+        public async Task<TagMembersBatchUnResponse> sendasync()
+        {
+            return await Task.Run(() => { return send(); });
+        }
+
         public TagMembersBatchUnRequest(Config _c)
         {
             this.c = _c;

@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Threading.Tasks;
 
 namespace Com.Ddlev.Weixin.High
 {
@@ -22,6 +23,11 @@ namespace Com.Ddlev.Weixin.High
         /// 点击后跳转到那个页面
         /// </summary>
         public string url { set; get; }
+        /// <summary>
+        /// 跳小程序所需数据，不需跳小程序可不用传该数据
+        /// </summary>
+        public BaseClass.MiniProgram miniprogram { set; get; }
+
         /// <summary>
         /// 微信后台的模版ID
         /// </summary>
@@ -50,6 +56,10 @@ namespace Com.Ddlev.Weixin.High
             return (TemplateResponse)Newtonsoft.Json.JsonConvert.DeserializeObject<TemplateResponse>(str);
         }
 
+        public async Task<TemplateResponse> sendasync()
+        {
+            return await Task.Run(() => { return send(); });
+        }
     }
 
     public class TemplateResponse : IFace.IResponse

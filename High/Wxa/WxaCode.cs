@@ -45,7 +45,7 @@ namespace Com.Ddlev.Weixin.High.Wxa
         CodeType codetype { set; get; }
 
         /// <summary>
-        /// 
+        /// 初始化
         /// </summary>
         /// <param name="_c">配置</param>
         /// <param name="_codetype">二维码类型</param>

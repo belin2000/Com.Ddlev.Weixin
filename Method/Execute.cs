@@ -11,9 +11,12 @@ namespace Com.Ddlev.Weixin.Method
             return t.send();
         }
 
-        public async Task<T> MethodAsync<T>(IRequest<T> t) where T : IResponse
+        public Task<T> MethodAsync<T>(IRequest<T> t) where T : IResponse
         {
-            return await t.sendasync();
+            
+            return Task.Run(()=> {
+                return t.sendasync(); 
+            } );
         }
     }
 }

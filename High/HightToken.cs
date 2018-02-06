@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Text;
 using Com.Ddlev.Weixin.IFace;
 using System.Threading.Tasks;
+using System.Web;
 
 namespace Com.Ddlev.Weixin.High
 {
@@ -12,6 +13,7 @@ namespace Com.Ddlev.Weixin.High
     /// </summary>
     public class HightToken:IFace.IRequest<HightTokenResponse>
     {
+        HttpContext _ct = null;
         static readonly object iso = new object();
         Config c;
         /// <summary>

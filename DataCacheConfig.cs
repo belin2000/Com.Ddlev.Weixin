@@ -3,13 +3,18 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Web;
 
 namespace Com.Ddlev.Weixin
 {
     public static class DataCacheConfig
     {
-        public static Com.Ddlev.DataCache.IDataCacheHelper GetHelper()
+        public static Com.Ddlev.DataCache.IDataCacheHelper GetHelper(HttpContext _ct=null)
         {
+            if (_ct == null)
+            {
+                _ct = HttpContext.Current;
+            }
             Com.Ddlev.DataCache.DataCacheType ct = Com.Ddlev.DataCache.DataCacheType.Sysnet;
             int _db = -1;
             try
@@ -31,7 +36,7 @@ namespace Com.Ddlev.Weixin
                     _db = -1; //默认是第一库
                 }
             }
-            return  Com.Ddlev.DataCache.DataCacheHelper.GetCacheHelp(ct, _db);
+            return Com.Ddlev.DataCache.DataCacheHelper.GetCacheHelp(ct, _db);
         }
     }
 }

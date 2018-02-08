@@ -9,12 +9,9 @@ namespace Com.Ddlev.Weixin
 {
     public static class DataCacheConfig
     {
-        public static Com.Ddlev.DataCache.IDataCacheHelper GetHelper(HttpContext _ct=null)
+        public static Com.Ddlev.DataCache.IDataCacheHelper GetHelper()
         {
-            if (_ct == null)
-            {
-                _ct = HttpContext.Current;
-            }
+            
             Com.Ddlev.DataCache.DataCacheType ct = Com.Ddlev.DataCache.DataCacheType.Sysnet;
             int _db = -1;
             try

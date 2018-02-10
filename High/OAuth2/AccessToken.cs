@@ -17,7 +17,7 @@ namespace Com.Ddlev.Weixin.High.OAuth2
         public string secret { set; get; }
         public string grant_type { get { return "authorization_code"; } }
         /// <summary>
-        /// 初始化
+        /// 获取oauth 的 AccessToken 初始化
         /// </summary>
         /// <param name="_c"></param>
         /// <param name="_code"></param>

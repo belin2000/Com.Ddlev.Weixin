@@ -13,7 +13,7 @@ namespace Com.Ddlev.Weixin.High.Menu
         Config c;
         Menu m;
         /// <summary>
-        /// 初始化
+        /// 新建自定义菜单 初始化
         /// </summary>
         /// <param name="_c"></param>
         /// <param name="_m"></param>

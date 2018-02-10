@@ -53,6 +53,7 @@
     <Compile Include="BaseClass\BaseMethod.cs" />
     <Compile Include="BaseClass\BaseResponse.cs" />
     <Compile Include="BaseClass\BusinessLogic.cs" />
+    <Compile Include="BaseClass\DeviceRet.cs" />
     <Compile Include="BaseClass\MsgProperties.cs" />
     <Compile Include="BaseClass\ResultCode.cs" />
     <Compile Include="BaseClass\returnCode.cs" />
@@ -62,6 +63,13 @@
     <Compile Include="DataCacheConfig.cs" />
     <Compile Include="High\Config.cs" />
     <Compile Include="High\Customer.cs" />
+    <Compile Include="High\Device\CompelBind.cs" />
+    <Compile Include="High\Device\CompelUnBind.cs" />
+    <Compile Include="High\Device\Bind.cs" />
+    <Compile Include="High\Device\Getstat.cs" />
+    <Compile Include="High\Device\QRCode.cs" />
+    <Compile Include="High\Device\TransMsg.cs" />
+    <Compile Include="High\Device\UnBind.cs" />
     <Compile Include="High\HightToken.cs" />
     <Compile Include="High\Menu\Create.cs" />
     <Compile Include="High\Menu\Delete.cs" />

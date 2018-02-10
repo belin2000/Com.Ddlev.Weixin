@@ -136,18 +136,7 @@ namespace Com.Ddlev.Weixin.BaseClass
                 }
             }
         }
-        /// <summary>
-        /// 表示总是接受证书
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="certificate"></param>
-        /// <param name="chain"></param>
-        /// <param name="errors"></param>
-        /// <returns></returns>
-        static bool CheckValidationResult(object sender, X509Certificate certificate, X509Chain chain, SslPolicyErrors errors)
-        {   // 总是接受  
-            return true;
-        }
+
         /// <summary>
         /// 只是针对只有一层的xml
         /// </summary>

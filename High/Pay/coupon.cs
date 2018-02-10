@@ -45,7 +45,7 @@ namespace Com.Ddlev.Weixin.High.Pay
         /// </summary>
         public string type { set; get; }
         /// <summary>
-        /// 初始化（需要设置属性）
+        /// 代金券 初始化（需要设置属性）
         /// </summary>
         /// <param name="_c"></param>
         public couponRequest( Config _c) {

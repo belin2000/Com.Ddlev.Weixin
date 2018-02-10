@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace Com.Ddlev.Weixin.High.Pay
 {
+    
     public class Config: Com.Ddlev.Weixin.High.Config
     {
         /// <summary>

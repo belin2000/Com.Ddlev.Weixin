@@ -13,7 +13,7 @@ namespace Com.Ddlev.Weixin.High.Menu
     {
         Config c;
         /// <summary>
-        /// 初始化
+        /// 获取服务器的菜单 初始化
         /// </summary>
         /// <param name="_c"></param>
         public GetRequest(Config _c)

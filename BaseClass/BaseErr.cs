@@ -8,7 +8,7 @@ namespace Com.Ddlev.Weixin.BaseClass
     public class BaseErr
     {
         /// <summary>
-        /// 错误码(如果有错误的时候)
+        /// 错误码(如果有错误的时候),0表示没有错误
         /// </summary>
         public int errcode { set; get; }
         /// <summary>

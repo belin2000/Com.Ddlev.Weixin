@@ -5,6 +5,9 @@ using System.Text;
 
 namespace Com.Ddlev.Weixin.High.OAuth2
 {
+    /// <summary>
+    /// auth2授权
+    /// </summary>
     public class Authorize
     {
         string _appid;

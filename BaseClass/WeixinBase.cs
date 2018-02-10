@@ -104,7 +104,15 @@ namespace Com.Ddlev.Weixin.BaseClass
         /// <summary>
         /// 保存在微信后台的图文信息(企业号)
         /// </summary>
-        _mpnews
+        _mpnews,
+        /// <summary>
+        /// 接收设备绑定解绑事件
+        /// </summary>
+        _device_event,
+        /// <summary>
+        /// 设备信息
+        /// </summary>
+        _device_text
     }
 
     public class EncryptBase

@@ -387,4 +387,31 @@ namespace Com.Ddlev.Weixin.BaseClass
         
     }
 
+    /// <summary>
+    /// 设备解绑和绑定
+    /// </summary>
+    public class MsgPropertiesForDevice_event : WeixinBase
+    {
+        public string DeviceType { set; get; }
+        public string DeviceID { set; get; }
+        public string Content { set; get; }
+        public string SessionID { set; get; }
+        public string MsgID { set; get; }
+        public string OpenID { set; get; }
+        public MsgPropertiesForDevice_event()
+        {
+            this.MsgType = WeiXinMsgType._device_event;
+        }
+    }
+    /// <summary>
+    /// 设备推送信息
+    /// </summary>
+    public class MsgPropertiesForDevice_text : MsgPropertiesForDevice_event
+    {
+        public MsgPropertiesForDevice_text()
+        {
+            this.MsgType = WeiXinMsgType._device_text;
+        }
+    }
+
 }

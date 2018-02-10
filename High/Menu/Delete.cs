@@ -11,7 +11,7 @@ namespace Com.Ddlev.Weixin.High.Menu
     {
         Config c;
         /// <summary>
-        /// 初始化
+        /// 删除自定义菜单（初始化)
         /// </summary>
         /// <param name="_c"></param>
         public DeleteRequest(Config _c)

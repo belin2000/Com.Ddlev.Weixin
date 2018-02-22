@@ -66,10 +66,14 @@
     <Compile Include="High\Device\CompelBind.cs" />
     <Compile Include="High\Device\CompelUnBind.cs" />
     <Compile Include="High\Device\Bind.cs" />
+    <Compile Include="High\Device\DeviceItem.cs" />
+    <Compile Include="High\Device\GetBindDevice.cs" />
+    <Compile Include="High\Device\GetOpenid.cs" />
     <Compile Include="High\Device\Getstat.cs" />
     <Compile Include="High\Device\QRCode.cs" />
     <Compile Include="High\Device\TransMsg.cs" />
     <Compile Include="High\Device\UnBind.cs" />
+    <Compile Include="High\Device\VerifyQRCode.cs" />
     <Compile Include="High\HightToken.cs" />
     <Compile Include="High\Menu\Create.cs" />
     <Compile Include="High\Menu\Delete.cs" />

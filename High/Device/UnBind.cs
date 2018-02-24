@@ -25,12 +25,7 @@ namespace Com.Ddlev.Weixin.High.Device
         }
         UnBindResponse send(string url)
         {
-            JsonSerializerSettings jSetting = new JsonSerializerSettings();
-            jSetting.NullValueHandling = NullValueHandling.Ignore;
-            jSetting.DefaultValueHandling = DefaultValueHandling.Ignore;
-            string json = JsonConvert.SerializeObject(this, jSetting);
-            string s = BaseClass.BaseMethod.WebRequestPost(json, url, Encoding.UTF8);
-            return Newtonsoft.Json.JsonConvert.DeserializeObject<UnBindResponse>(s);
+            return BaseClass.BaseMethod.send<UnBindResponse>(url, this);
         }
 
         public new  async Task<UnBindResponse> sendasync()

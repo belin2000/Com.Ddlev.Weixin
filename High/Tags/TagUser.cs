@@ -23,12 +23,7 @@ namespace Com.Ddlev.Weixin.High.Tags
         public string next_openid { set; get; }
         protected TagUserResponse send(string url)
         {
-            JsonSerializerSettings st = new JsonSerializerSettings();
-            st.NullValueHandling = NullValueHandling.Ignore;
-            string json = JsonConvert.SerializeObject(this, st);
-            string s = BaseClass.BaseMethod.WebRequestPost(json, url, Encoding.UTF8);
-            var rs = (TagUserResponse)Newtonsoft.Json.JsonConvert.DeserializeObject(s, typeof(TagUserResponse));
-            return rs;
+            return BaseClass.BaseMethod.send<TagUserResponse>(url, this);
         }
         public TagUserResponse send()
         {

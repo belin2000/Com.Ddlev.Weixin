@@ -17,13 +17,7 @@ namespace Com.Ddlev.Weixin.High.Tags
         /// <returns></returns>
         protected DeleteResponse send(string url)
         {
-            JsonSerializerSettings st = new JsonSerializerSettings();
-            st.NullValueHandling = NullValueHandling.Ignore;
-            st.DefaultValueHandling = DefaultValueHandling.Ignore;
-            string json = JsonConvert.SerializeObject(this,st);
-            string s = BaseClass.BaseMethod.WebRequestPost(json, url, Encoding.UTF8);
-            var rs = (DeleteResponse)Newtonsoft.Json.JsonConvert.DeserializeObject(s, typeof(DeleteResponse));
-            return rs;
+            return BaseClass.BaseMethod.send<DeleteResponse>(url, this);
         }
         public DeleteResponse send()
         {

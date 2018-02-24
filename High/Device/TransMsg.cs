@@ -43,12 +43,7 @@ namespace Com.Ddlev.Weixin.High.Device
         }
         TransMsgResponse send(string url)
         {
-            JsonSerializerSettings jSetting = new JsonSerializerSettings();
-            jSetting.NullValueHandling = NullValueHandling.Ignore;
-            jSetting.DefaultValueHandling = DefaultValueHandling.Ignore;
-            string json = JsonConvert.SerializeObject(this, jSetting);
-            string s = BaseClass.BaseMethod.WebRequestPost(json, url, Encoding.UTF8);
-            return Newtonsoft.Json.JsonConvert.DeserializeObject<TransMsgResponse>(s);
+            return BaseClass.BaseMethod.send<TransMsgResponse>(url, this);
         }
 
         public async Task<TransMsgResponse> sendasync()

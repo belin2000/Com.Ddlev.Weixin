@@ -24,16 +24,19 @@ namespace Com.Ddlev.Weixin.High.ShakeAround
         {
             Dictionary<string, int> dic = new Dictionary<string, int>();
             dic.Add("page_id", PageID);
-            var p = Newtonsoft.Json.JsonConvert.SerializeObject(dic);
-
+            string url = "https://api.weixin.qq.com/shakearound/page/delete?access_token=" + new HightToken(c).Token;
             DeletePageResponse sr = new DeletePageResponse();
             try
             {
-                sr = (DeletePageResponse)Newtonsoft.Json.JsonConvert.DeserializeObject(BaseClass.BaseMethod.WebRequestPost(p, "https://api.weixin.qq.com/shakearound/page/delete?access_token=" + new HightToken(c).Token, Encoding.UTF8), typeof(DeletePageResponse));
+                return BaseClass.BaseMethod.send<DeletePageResponse>(url, dic);
             }
             catch
             { }
             return sr;
+        }
+        DeletePageResponse send(string url)
+        {
+            return BaseClass.BaseMethod.send<DeletePageResponse>(url, this);
         }
 
         public async Task<DeletePageResponse> sendasync()

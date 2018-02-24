@@ -36,12 +36,7 @@ namespace Com.Ddlev.Weixin.High.Device
         }
         QRCodeResponse send(string url)
         {
-            JsonSerializerSettings jSetting = new JsonSerializerSettings();
-            jSetting.NullValueHandling = NullValueHandling.Ignore;
-            jSetting.DefaultValueHandling = DefaultValueHandling.Ignore;
-            string json = JsonConvert.SerializeObject(this, jSetting);
-            string s = BaseClass.BaseMethod.WebRequestPost(json, url, Encoding.UTF8);
-            return Newtonsoft.Json.JsonConvert.DeserializeObject<QRCodeResponse>(s);
+            return BaseClass.BaseMethod.send<QRCodeResponse>(url, this);
         }
         public async Task<QRCodeResponse> sendasync()
         {

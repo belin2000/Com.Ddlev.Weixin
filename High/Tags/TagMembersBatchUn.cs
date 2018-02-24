@@ -23,12 +23,7 @@ namespace Com.Ddlev.Weixin.High.Tags
         public long tagid { set; get; }
         protected TagMembersBatchResponse send(string url)
         {
-            JsonSerializerSettings st = new JsonSerializerSettings();
-            st.NullValueHandling = NullValueHandling.Ignore;
-            string json = JsonConvert.SerializeObject(this, st);
-            string s = BaseClass.BaseMethod.WebRequestPost(json, url, Encoding.UTF8);
-            var rs = (TagMembersBatchResponse)Newtonsoft.Json.JsonConvert.DeserializeObject(s, typeof(TagMembersBatchResponse));
-            return rs;
+            return BaseClass.BaseMethod.send<TagMembersBatchResponse>(url, this);
         }
         public TagMembersBatchResponse send()
         {

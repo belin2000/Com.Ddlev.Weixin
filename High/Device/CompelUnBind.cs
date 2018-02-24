@@ -33,12 +33,7 @@ namespace Com.Ddlev.Weixin.High.Device
         }
         CompelUnBindResponse send(string url)
         {
-            JsonSerializerSettings jSetting = new JsonSerializerSettings();
-            jSetting.NullValueHandling = NullValueHandling.Ignore;
-            jSetting.DefaultValueHandling = DefaultValueHandling.Ignore;
-            string json = JsonConvert.SerializeObject(this, jSetting);
-            string s = BaseClass.BaseMethod.WebRequestPost(json, url, Encoding.UTF8);
-            return Newtonsoft.Json.JsonConvert.DeserializeObject<CompelUnBindResponse>(s);
+            return BaseClass.BaseMethod.send<CompelUnBindResponse>(url, this);
         }
 
         public async Task<CompelUnBindResponse> sendasync()

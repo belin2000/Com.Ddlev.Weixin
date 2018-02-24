@@ -25,12 +25,7 @@ namespace Com.Ddlev.Weixin.High.Device
         }
         GetStatResponse send(string url)
         {
-            JsonSerializerSettings jSetting = new JsonSerializerSettings();
-            jSetting.NullValueHandling = NullValueHandling.Ignore;
-            jSetting.DefaultValueHandling = DefaultValueHandling.Ignore;
-            string json = JsonConvert.SerializeObject(this, jSetting);
-            string s = BaseClass.BaseMethod.WebRequestGet(url, Encoding.UTF8);
-            return Newtonsoft.Json.JsonConvert.DeserializeObject<GetStatResponse>(s);
+            return BaseClass.BaseMethod.send<GetStatResponse>(url, this);
         }
 
         public async Task<GetStatResponse> sendasync()

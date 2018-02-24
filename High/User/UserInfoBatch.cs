@@ -20,13 +20,7 @@ namespace Com.Ddlev.Weixin.High.User
         /// <returns></returns>
         protected UserInfoBatchResponse send(string url)
         {
-            JsonSerializerSettings st = new JsonSerializerSettings();
-            st.NullValueHandling = NullValueHandling.Ignore;
-            st.DefaultValueHandling = DefaultValueHandling.Ignore;
-            string json = JsonConvert.SerializeObject(this, st);
-            string s = BaseClass.BaseMethod.WebRequestPost(json, url, Encoding.UTF8);
-            var rs = (UserInfoBatchResponse)Newtonsoft.Json.JsonConvert.DeserializeObject(s, typeof(UserInfoBatchResponse));
-            return rs;
+            return BaseClass.BaseMethod.send<UserInfoBatchResponse>(url, this);
         }
         public UserInfoBatchResponse send()
         {

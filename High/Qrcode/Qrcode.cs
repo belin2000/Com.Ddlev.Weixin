@@ -34,10 +34,7 @@ namespace Com.Ddlev.Weixin.High.Qrcode
             this.c = _c;
         }
         protected QrcodeResponse send(string url) {
-            string json = JsonConvert.SerializeObject(this);
-            string s = BaseClass.BaseMethod.WebRequestPost(json, url, Encoding.UTF8);
-            var rs = (QrcodeResponse)Newtonsoft.Json.JsonConvert.DeserializeObject(s, typeof(QrcodeResponse));
-            return rs;
+            return BaseClass.BaseMethod.send<QrcodeResponse>(url, this);
         }
         public QrcodeResponse send() {
             HightToken token = new HightToken(c);

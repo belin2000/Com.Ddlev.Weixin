@@ -12,7 +12,7 @@ using System.Text.RegularExpressions;
 using System.Net.Security;
 using System.Security.Authentication;
 using System.Security.Cryptography.X509Certificates;
-
+using Newtonsoft.Json;
 
 namespace Com.Ddlev.Weixin.BaseClass
 {
@@ -188,5 +188,15 @@ namespace Com.Ddlev.Weixin.BaseClass
             return sign.ToUpper();
         }
         #endregion
+
+        public static T send<T>(string url, dynamic obj)
+        {
+            JsonSerializerSettings jSetting = new JsonSerializerSettings();
+            jSetting.NullValueHandling = NullValueHandling.Ignore;
+            jSetting.DefaultValueHandling = DefaultValueHandling.Ignore;
+            string json = JsonConvert.SerializeObject(obj, jSetting);
+            string s = BaseClass.BaseMethod.WebRequestPost(json, url, Encoding.UTF8);
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<T>(s);
+        }
     }
 }

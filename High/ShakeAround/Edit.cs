@@ -20,15 +20,19 @@ namespace Com.Ddlev.Weixin.High.ShakeAround
         public EditResponse send()
         {
             var p = Newtonsoft.Json.JsonConvert.SerializeObject(this);
-
+            string url = "https://api.weixin.qq.com/shakearound/page/update?access_token=" + new HightToken(c).Token;
             EditResponse sr = new EditResponse();
             try
             {
-                sr = (EditResponse)Newtonsoft.Json.JsonConvert.DeserializeObject(Com.Ddlev.Weixin.BaseClass.BaseMethod.WebRequestPost(p, "https://api.weixin.qq.com/shakearound/page/update?access_token=" + new HightToken(c).Token, Encoding.UTF8), typeof(EditResponse));
+                sr = send(url);
             }
             catch
             { }
             return sr;
+        }
+        EditResponse send(string url)
+        {
+            return BaseClass.BaseMethod.send<EditResponse>(url, this);
         }
 
         public async Task<EditResponse> sendasync()

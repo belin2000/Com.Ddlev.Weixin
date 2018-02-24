@@ -28,15 +28,19 @@ namespace Com.Ddlev.Weixin.High.ShakeAround
         public BindPageResponse send()
         {
             var p = Newtonsoft.Json.JsonConvert.SerializeObject(this);
-
+            string url= "https://api.weixin.qq.com/shakearound/device/bindpage?access_token=" + new HightToken(c).Token;
             BindPageResponse sr = new BindPageResponse();
             try
             {
-                sr = (BindPageResponse)Newtonsoft.Json.JsonConvert.DeserializeObject(BaseClass.BaseMethod.WebRequestPost(p, "https://api.weixin.qq.com/shakearound/device/bindpage?access_token=" + new HightToken(c).Token, Encoding.UTF8), typeof(BindPageResponse));
+                return send(url);
             }
             catch
             { }
             return sr;
+        }
+        public BindPageResponse send(string url)
+        {
+            return BaseClass.BaseMethod.send<BindPageResponse>(url, this);
         }
 
         public async Task<BindPageResponse> sendasync()

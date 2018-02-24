@@ -31,13 +31,14 @@ namespace Com.Ddlev.Weixin.High.Wxa
         }
         public new TemplateResponse send()
         {
-            var st = new Newtonsoft.Json.JsonSerializerSettings();
-            st.NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore;
-            //拼成json
-            string paramData = Newtonsoft.Json.JsonConvert.SerializeObject(this, st);
-            var str = BaseClass.BaseMethod.WebRequestPost(paramData, "https://api.weixin.qq.com/cgi-bin/message/template/send?access_token=" + (new HightToken(c).Token), System.Text.Encoding.UTF8);
-            return Newtonsoft.Json.JsonConvert.DeserializeObject<TemplateResponse>(str);
+            string url = "https://api.weixin.qq.com/cgi-bin/message/template/send?access_token=" + new HightToken(c).Token;
+            return send(url);
         }
+        public TemplateResponse send(string url)
+        {
+            return BaseClass.BaseMethod.send<TemplateResponse>(url, this);
+        }
+
         public new  async Task<TemplateResponse> sendasync()
         {
             return await Task.Run(() => { return send(); });

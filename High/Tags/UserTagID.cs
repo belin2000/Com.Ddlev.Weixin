@@ -19,12 +19,7 @@ namespace Com.Ddlev.Weixin.High.Tags
         public string openid { set; get; }
         protected UserTagIDResponse send(string url)
         {
-            JsonSerializerSettings st = new JsonSerializerSettings();
-            st.NullValueHandling = NullValueHandling.Ignore;
-            string json = JsonConvert.SerializeObject(this, st);
-            string s = BaseClass.BaseMethod.WebRequestPost(json, url, Encoding.UTF8);
-            var rs = (UserTagIDResponse)Newtonsoft.Json.JsonConvert.DeserializeObject(s, typeof(UserTagIDResponse));
-            return rs;
+            return BaseClass.BaseMethod.send<UserTagIDResponse>(url, this);
         }
         public UserTagIDResponse send()
         {

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Drawing;
 using System.IO;
 using System.Linq;
+using System.Net;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -78,7 +79,7 @@ namespace Com.Ddlev.Weixin.High.Wxa
             st.NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore;
             var pjson = Newtonsoft.Json.JsonConvert.SerializeObject(this, st);
             var stm= BaseClass.BaseMethod.WebRequestPostBase<System.Drawing.Image>(pjson, url, Encoding.UTF8, 
-                delegate(Stream stms) {
+                delegate(Stream stms,string ContentType, WebHeaderCollection headers) {
                 Image mImage = Image.FromStream(stms);
                 stms.Close();
                 return mImage;

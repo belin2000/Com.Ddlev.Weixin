@@ -30,9 +30,7 @@ namespace Com.Ddlev.Weixin.High.Wxa
         }
         public CustomerResponse send(string url)
         {
-            string st = Newtonsoft.Json.JsonConvert.SerializeObject(t);
-            string sc = BaseClass.BaseMethod.WebRequestPost(st, url, Encoding.UTF8);
-            return Newtonsoft.Json.JsonConvert.DeserializeObject<CustomerResponse>(sc);
+            return BaseClass.BaseMethod.send<CustomerResponse>(url, t);
         }
 
         public async Task<CustomerResponse> sendasync()

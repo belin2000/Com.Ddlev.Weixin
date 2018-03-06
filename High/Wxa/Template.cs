@@ -34,7 +34,7 @@ namespace Com.Ddlev.Weixin.High.Wxa
             string url = "https://api.weixin.qq.com/cgi-bin/message/template/send?access_token=" + new HightToken(c).Token;
             return send(url);
         }
-        public TemplateResponse send(string url)
+        new  TemplateResponse send(string url)
         {
             return BaseClass.BaseMethod.send<TemplateResponse>(url, this);
         }

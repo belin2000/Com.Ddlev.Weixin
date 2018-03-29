@@ -7,8 +7,12 @@ using System.Web;
 
 namespace Com.Ddlev.Weixin
 {
-    public static class DataCacheConfig
+    internal static class DataCacheConfig
     {
+        /// <summary>
+        /// 获取缓存的操作方式（用于配置缓存）
+        /// </summary>
+        /// <returns></returns>
         public static Com.Ddlev.DataCache.IDataCacheHelper GetHelper()
         {
             

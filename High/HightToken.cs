@@ -29,14 +29,14 @@ namespace Com.Ddlev.Weixin.High
         public HightToken(Config C,string _Token,int senum=3600)
         {
             this.c = C;
-            if (DataCacheConfig.GetHelper().Get(c.AppID + "_HightToken") == null)
+            if (!DataCacheConfig.GetHelper().HasKey(c.AppID + "_HightToken"))
             {
                 DataCacheConfig.GetHelper().Set(c.AppID + "_HightToken", _Token, senum);
                 this.Token = _Token;
             }
             else
             {
-                this.Token = DataCacheConfig.GetHelper().Get(c.AppID + "_HightToken").ToString();
+                this.Token = DataCacheConfig.GetHelper().Get<string>(c.AppID + "_HightToken").ToString();
             }
         }
         /// <summary>
@@ -46,18 +46,18 @@ namespace Com.Ddlev.Weixin.High
         public HightToken(Config C)
         {
             this.c = C;
-            if (DataCacheConfig.GetHelper().Get(c.AppID + "_HightToken") == null)
+            if (!DataCacheConfig.GetHelper().HasKey(c.AppID + "_HightToken"))
             {
                 lock(iso)
                 {
-                    if (DataCacheConfig.GetHelper().Get(c.AppID + "_HightToken") == null)
+                    if (!DataCacheConfig.GetHelper().HasKey(c.AppID + "_HightToken"))
                     {
                         var rs = send();
                         this.Token = rs.access_token;
                     }
                 }
             }
-            this.Token = DataCacheConfig.GetHelper().Get(C.AppID + "_HightToken").ToString();
+            this.Token = DataCacheConfig.GetHelper().Get<string>(C.AppID + "_HightToken").ToString();
 
         }
 

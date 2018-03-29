@@ -60,7 +60,7 @@ namespace Com.Ddlev.Weixin.High
         public string JsapiTicket(string actoken)
         {
             
-            if (DataCacheConfig.GetHelper().Get(appId + "_JsapiTicket") == null)
+            if (!DataCacheConfig.GetHelper().HasKey(appId + "_JsapiTicket"))
             {
                 string cb = BaseClass.BaseMethod.WebRequestGet("https://api.weixin.qq.com/cgi-bin/ticket/getticket?access_token=" + actoken + "&type=jsapi", System.Text.Encoding.UTF8);
                 var jo = Newtonsoft.Json.Linq.JObject.Parse(cb);
@@ -77,7 +77,7 @@ namespace Com.Ddlev.Weixin.High
             }
             else
             {
-                return DataCacheConfig.GetHelper().Get(appId + "_JsapiTicket").ToString();
+                return DataCacheConfig.GetHelper().Get<string>(appId + "_JsapiTicket").ToString();
             }
         }
     }

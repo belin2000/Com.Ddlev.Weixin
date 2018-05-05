@@ -8,7 +8,7 @@ namespace Com.Ddlev.Weixin.BaseClass
     /// <summary>
     /// 微信公共平台公用类
     /// </summary>
-    public class WeixinBase
+    public class WeixinBase: IFace.IWechatMessage
     {
         string _ToUserName;
         /// <summary>
@@ -115,6 +115,9 @@ namespace Com.Ddlev.Weixin.BaseClass
         _device_text
     }
 
+    /// <summary>
+    /// 加密消息体
+    /// </summary>
     public class EncryptBase
     {
         string _Encrypt;

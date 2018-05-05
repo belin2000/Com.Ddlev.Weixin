@@ -8,7 +8,7 @@ namespace Com.Ddlev.Weixin.BaseClass
     /// <summary>
     /// 文本信息(接收和发送)
     /// </summary>
-    public class MsgPropertiesForText : WeixinBase
+    public class MsgPropertiesForText : WeixinBase ,IFace.IWechatMessage
     {
         string _Content;
         /// <summary>
@@ -37,7 +37,7 @@ namespace Com.Ddlev.Weixin.BaseClass
     /// <summary>
     /// 图片信息(接收)
     /// </summary>
-    public class MsgPropertiesForImage : WeixinBase
+    public class MsgPropertiesForImage : WeixinBase, IFace.IWechatMessage
     {
         string _PicUrl;
         /// <summary>
@@ -61,7 +61,7 @@ namespace Com.Ddlev.Weixin.BaseClass
     /// <summary>
     /// 图文信息(发送)
     /// </summary>
-    public class MsgPropertiesForNews : WeixinBase
+    public class MsgPropertiesForNews : WeixinBase, IFace.IWechatMessage
     {
         //int _FuncFlag;
         ///// <summary>
@@ -156,7 +156,7 @@ namespace Com.Ddlev.Weixin.BaseClass
     /// <summary>
     /// 音乐信息(发送)
     /// </summary>
-    public class MsgPropertiesForMusic : WeixinBase
+    public class MsgPropertiesForMusic : WeixinBase, IFace.IWechatMessage
     {
         int _FuncFlag;
         /// <summary>
@@ -227,7 +227,7 @@ namespace Com.Ddlev.Weixin.BaseClass
     /// <summary>
     /// 地理位置类（接收）
     /// </summary>
-    public class MsgPropertiesForLocation : WeixinBase
+    public class MsgPropertiesForLocation : WeixinBase, IFace.IWechatMessage
     {
         float _Location_X;
         /// <summary>
@@ -274,7 +274,7 @@ namespace Com.Ddlev.Weixin.BaseClass
     /// <summary>
     /// 连接信息类（接收）
     /// </summary>
-    public class MsgPropertiesForLink : WeixinBase
+    public class MsgPropertiesForLink : WeixinBase, IFace.IWechatMessage
     {
         string _Title;
         /// <summary>
@@ -308,7 +308,7 @@ namespace Com.Ddlev.Weixin.BaseClass
     /// <summary>
     /// 事件模式(订阅，自定义菜单)
     /// </summary>
-    public class MsgPropertiesForEvent : WeixinBase
+    public class MsgPropertiesForEvent : WeixinBase, IFace.IWechatMessage
     {
         string _Event;
         /// <summary>
@@ -360,7 +360,7 @@ namespace Com.Ddlev.Weixin.BaseClass
     /// <summary>
     /// 语音模式
     /// </summary>
-    public class MsgPropertiesForVoice : WeixinBase
+    public class MsgPropertiesForVoice : WeixinBase, IFace.IWechatMessage
     {
         string _MediaId;
 
@@ -390,7 +390,7 @@ namespace Com.Ddlev.Weixin.BaseClass
     /// <summary>
     /// 设备解绑和绑定
     /// </summary>
-    public class MsgPropertiesForDevice_event : WeixinBase
+    public class MsgPropertiesForDevice_event : WeixinBase, IFace.IWechatMessage
     {
         public string DeviceType { set; get; }
         public string DeviceID { set; get; }

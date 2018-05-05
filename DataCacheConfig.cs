@@ -20,7 +20,7 @@ namespace Com.Ddlev.Weixin
             int _db = -1;
             try
             {
-                ct =(Com.Ddlev.DataCache.DataCacheType) Convert.ToInt32( System.Configuration.ConfigurationManager.AppSettings["cachetype"]);
+                ct =(Com.Ddlev.DataCache.DataCacheType) Convert.ToInt32( System.Configuration.ConfigurationManager.AppSettings["wxcachetype"]);
             }
             catch
             {
@@ -30,7 +30,7 @@ namespace Com.Ddlev.Weixin
             {
                 try
                 {
-                    _db = Convert.ToInt32(System.Configuration.ConfigurationManager.AppSettings["_dbindex"]); //设置保存在redis的第几个数据库里
+                    _db = Convert.ToInt32(System.Configuration.ConfigurationManager.AppSettings["_wxdbindex"]); //设置保存在redis的第几个数据库里
                 }
                 catch
                 {

@@ -53,6 +53,7 @@
     <Compile Include="BaseClass\BaseMethod.cs" />
     <Compile Include="BaseClass\BaseResponse.cs" />
     <Compile Include="BaseClass\BusinessLogic.cs" />
+    <Compile Include="BaseClass\Tencent_Cryptography.cs" />
     <Compile Include="BaseClass\DeviceRet.cs" />
     <Compile Include="BaseClass\MsgProperties.cs" />
     <Compile Include="BaseClass\ResultCode.cs" />
@@ -81,6 +82,7 @@
     <Compile Include="High\Menu\Menu.cs" />
     <Compile Include="High\OAuth2\AccessToken.cs" />
     <Compile Include="High\OAuth2\Authorize.cs" />
+    <Compile Include="High\open\component\Verify.cs" />
     <Compile Include="High\Pay\Config.cs" />
     <Compile Include="High\Pay\coupon.cs" />
     <Compile Include="High\Pay\MicroPay.cs" />
@@ -121,6 +123,7 @@
     <Compile Include="High\User\User.cs" />
     <Compile Include="High\User\UserInfoBatch.cs" />
     <Compile Include="High\Wxa\Customer.cs" />
+    <Compile Include="High\Wxa\PhoneNumber.cs" />
     <Compile Include="High\Wxa\Snsscodesession.cs" />
     <Compile Include="High\Wxa\Template.cs" />
     <Compile Include="High\Wxa\UserInfo.cs" />
@@ -130,8 +133,10 @@
     <Compile Include="IFace\IMethod.cs" />
     <Compile Include="IFace\IRequest.cs" />
     <Compile Include="IFace\IResponse.cs" />
+    <Compile Include="IFace\IWechatMessage.cs" />
     <Compile Include="Method\Execute.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Verify.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Com.Ddlev.Base\Com.Ddlev.Base.csproj">
@@ -147,6 +152,7 @@
       <Name>Com.Ddlev.Cryptography</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

@@ -94,6 +94,7 @@ namespace Com.Ddlev.Weixin.High.CustomerClass
             set { _text = value; } 
             get { return _text; } 
         }
+        public new string msgtype { get { return "text"; } }
     }
     public class ForText {
         string _content;
@@ -127,6 +128,7 @@ namespace Com.Ddlev.Weixin.High.CustomerClass
             set { _ForImage = value; } 
             get { return _ForImage; } 
         }
+        public new string msgtype { get { return "image"; } }
     }
     /// <summary>
     /// 媒体基础类
@@ -175,6 +177,7 @@ namespace Com.Ddlev.Weixin.High.CustomerClass
             set { _voice = value; } 
             get { return _voice; } 
         }
+        public new string msgtype { get { return "voice"; } }
     }
     public class ForVoice : ForMedia
     {
@@ -194,6 +197,7 @@ namespace Com.Ddlev.Weixin.High.CustomerClass
     /// </summary>
     public class CustomerForvideo : Base.CustomerBase
     {
+        public new string msgtype { get { return "video"; } }
         ForVideo _video;
         public ForVideo video 
         { 
@@ -206,7 +210,7 @@ namespace Com.Ddlev.Weixin.High.CustomerClass
     /// </summary>
     public class ForVideo : ForMedia
     {
-        
+
         string _title;
         /// <summary>
         /// 视频消息的标题
@@ -244,6 +248,8 @@ namespace Com.Ddlev.Weixin.High.CustomerClass
     /// </summary>
     public class CustomerFormusic : Base.CustomerBase
     {
+        public new string msgtype { get { return "music"; } }
+
         ForMusic _ForMusic;
         public ForMusic music 
         { 
@@ -322,6 +328,8 @@ namespace Com.Ddlev.Weixin.High.CustomerClass
     /// </summary>
     public class CustomerFornews : Base.CustomerBase
     {
+        public new string msgtype { get { return "news"; } }
+
         ForNews _ForNews;
         public ForNews news 
         { 

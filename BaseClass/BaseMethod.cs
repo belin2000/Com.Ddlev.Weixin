@@ -39,9 +39,9 @@ namespace Com.Ddlev.Weixin.BaseClass
         /// 类转换为xml
         /// </summary>
         /// <param name="t">实体类</param>
-        /// <param name="SpaceOut">null或者空值是否去掉,true 表示去掉</param>
+        /// <param name="SpaceOut">null或者空值是否去掉,true 表示去掉,(默认是true)</param>
         /// <returns></returns>
-        public static string ObjToXml(object t,bool SpaceOut)
+        public static string ObjToXml(object t,bool SpaceOut=true)
         {
             StringBuilder sb = new StringBuilder();
             PropertyInfo[] pis = t.GetType().GetProperties();

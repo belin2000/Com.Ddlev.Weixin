@@ -25,9 +25,17 @@ namespace Com.Ddlev.Weixin.High.Wxa
         public SnsscodesessionResponse send()
         {
             string url = "https://api.weixin.qq.com/sns/jscode2session?appid=" + c.AppID + "&secret=" + c.SecretKey + "&js_code=" + code + "&grant_type=authorization_code";
-            var back = BaseClass.BaseMethod.WebRequestGet(url, Encoding.UTF8);
-            return Newtonsoft.Json.JsonConvert.DeserializeObject<SnsscodesessionResponse>(back);
+            var back = Com.Ddlev.Base.BaseMethod.WebRequestGet(url, Encoding.UTF8);
+            var ts= Newtonsoft.Json.JsonConvert.DeserializeObject<SnsscodesessionResponse>(back);
+            if(string.IsNullOrWhiteSpace( ts.errcode)){
+                DataCacheConfig.GetHelper().Set("sessionkey_" + ts.openid, ts.session_key, 8*60*60); //缓存8小时
+            }
+            return ts;
         }
+        
+
+
+
 
         public async Task<SnsscodesessionResponse> sendasync()
         {
@@ -52,5 +60,9 @@ namespace Com.Ddlev.Weixin.High.Wxa
         /// 用户的会话密钥(成功时候出现)
         /// </summary>
         public string session_key { set; get; }
+        /// <summary>
+        /// 用户在开放平台的唯一标识符
+        /// </summary>
+        public string unionid { set; get; }
     }
 }

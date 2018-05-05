@@ -26,7 +26,7 @@ namespace Com.Ddlev.Weixin.High.Wxa
         }
         public UserInfoResponse send()
         {
-            return Newtonsoft.Json.JsonConvert.DeserializeObject<UserInfoResponse>(BaseClass.BaseMethod.AESDecrypt(encryptedData, Convert.FromBase64String(session_key), Convert.FromBase64String(iv)));
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<UserInfoResponse>(Com.Ddlev.Cryptography.Encrypt.AESDecrypt(encryptedData, Convert.FromBase64String(session_key), Convert.FromBase64String(iv)));
         }
 
         public async Task<UserInfoResponse> sendasync()

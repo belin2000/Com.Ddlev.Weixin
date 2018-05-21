@@ -31,10 +31,10 @@ namespace Com.Ddlev.Weixin.High.Wxa
         }
         public new TemplateResponse send()
         {
-            string url = "https://api.weixin.qq.com/cgi-bin/message/template/send?access_token=" + new HightToken(c).Token;
+            string url = "https://api.weixin.qq.com/cgi-bin/message/wxopen/template/send?access_token=" + new HightToken(c).Token;
             return send(url);
         }
-        new  TemplateResponse send(string url)
+        TemplateResponse send(string url)
         {
             return BaseClass.BaseMethod.send<TemplateResponse>(url, this);
         }

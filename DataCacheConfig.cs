@@ -37,7 +37,7 @@ namespace Com.Ddlev.Weixin
                     _db = -1; //默认是第一库
                 }
             }
-            return Com.Ddlev.DataCache.DataCacheHelper.GetCacheHelp(ct, _db);
+            return Com.Ddlev.DataCache.DataCacheHelper.GetCacheHelp(ct, _db, System.Configuration.ConfigurationManager.AppSettings["_wxradisconfig"]);
         }
     }
 }

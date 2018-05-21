@@ -123,6 +123,7 @@
     <Compile Include="High\User\User.cs" />
     <Compile Include="High\User\UserInfoBatch.cs" />
     <Compile Include="High\Wxa\Customer.cs" />
+    <Compile Include="High\Wxa\msgSecCheck.cs" />
     <Compile Include="High\Wxa\PhoneNumber.cs" />
     <Compile Include="High\Wxa\Snsscodesession.cs" />
     <Compile Include="High\Wxa\Template.cs" />

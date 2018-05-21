@@ -31,7 +31,10 @@ namespace Com.Ddlev.Weixin.High.Wxa
         /// auto_color 为 false 时生效，使用 rgb 设置颜色
         /// </summary>
         public Line_Color line_color { set; get; }
-
+        /// <summary>
+        /// 是否使用透明背景色
+        /// </summary>
+        public bool is_hyaline { set; get; }
         /// <summary>
         /// 必须是已经发布的小程序页面，例如 "pages/index/index" ,根路径前不要填加'/',不能携带参数（参数请放在scene字段里），如果不填写这个字段，默认跳主页面 (codetype =CodeType.codeunlimit 时候有效)
         /// </summary>
@@ -54,9 +57,10 @@ namespace Com.Ddlev.Weixin.High.Wxa
         /// <param name="_path">跳转到指定页面(例如 pages/index?query=1)(codetype =CodeType.code | CodeType.appqrcode 时候有效) </param>
         /// <param name="_page">必须是已经发布的小程序页面，例如 "pages/index/index" ,根路径前不要填加'/',不能携带参数（参数请放在scene字段里），如果不填写这个字段，默认跳主页面 (codetype =CodeType.codeunlimit 时候有效)</param>
         /// <param name="_scene">最大32个可见字符，只支持数字，大小写英文以及部分特殊字符：!#$&'()*+,/:;=?@-._~ (codetype =CodeType.codeunlimit 时候有效)</param>
+        /// <param name="_is_hyaline">是否使用透明背景色（默认true）,如果不是（false）,则为白色</param>
         /// <param name="_auto_color">是否不需要配置主色调（默认为true）</param>
         /// <param name="_line_color">色彩类型 </param>
-        public WxaCodeRequest(Config _c, CodeType _codetype,int _width=430,string _path=null, string _page=null, string _scene=null, bool _auto_color=true,Line_Color _line_color=null)
+        public WxaCodeRequest(Config _c, CodeType _codetype,int _width=430,string _path=null, string _page=null, string _scene=null, bool _is_hyaline=true, bool _auto_color=true,Line_Color _line_color=null)
         {
             this.c = _c;
             this.codetype = _codetype;
@@ -66,6 +70,7 @@ namespace Com.Ddlev.Weixin.High.Wxa
             this.scene = _scene;
             this.auto_color = _auto_color;
             this.line_color = _line_color;
+            this.is_hyaline = _is_hyaline;
         }
 
         public WxaCodeResponse send()
@@ -157,15 +162,15 @@ namespace Com.Ddlev.Weixin.High.Wxa
     public enum CodeType
     {
         /// <summary>
-        /// 默认（wxa/getwxacode）,直接进入path对应的页面 (接口A: 适用于需要的码数量较少的业务场景 )
+        /// 小程序码 默认（wxa/getwxacode）,直接进入path对应的页面 (接口A: 适用于需要的码数量较少的业务场景 )
         /// </summary>
         code = 0,
         /// <summary>
-        /// 用户扫描该码进入小程序后，开发者需在对应页面获取的码中 scene 字段的值，再做处理逻辑(接口B：适用于需要的码数量极多，或仅临时使用的业务场景)
+        /// 小程序二维码， 用户扫描该码进入小程序后，开发者需在对应页面获取的码中 scene 字段的值，再做处理逻辑(接口B：适用于需要的码数量极多，或仅临时使用的业务场景)
         /// </summary>
         codeunlimit = 1,
         /// <summary>
-        /// 通过该接口生成的小程序二维码，永久有效，请谨慎使用。用户扫描该码进入小程序后，将直接进入 path 对应的页面。(接口C：适用于需要的码数量较少的业务场景)
+        /// 小程序二维码，通过该接口生成的小程序二维码，永久有效，请谨慎使用。用户扫描该码进入小程序后，将直接进入 path 对应的页面。(接口C：适用于需要的码数量较少的业务场景)
         /// </summary>
         appqrcode = 2
     }

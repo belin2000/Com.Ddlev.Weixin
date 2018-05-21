@@ -14,7 +14,7 @@ namespace Com.Ddlev.Weixin.High
         /// <summary>
         /// 对应模版的那些first,keyword1等
         /// </summary>
-        public List<TemplateItem> data { set; get; }
+        public Dictionary<string, TemplateItem> data { set; get; }
         /// <summary>
         /// 发给那个用户的openid
         /// </summary>
@@ -72,28 +72,25 @@ namespace Com.Ddlev.Weixin.High
     /// </summary>
     public class TemplateItem
     {
-            public string Key { set; get; }
             /// <summary>
             /// 值
             /// </summary>
-           public string Value { set; get; }
+           public string value { set; get; }
             /// <summary>
             /// 颜色（例如 #ffffff ）
             /// </summary>
-           public string Color { set; get; }
+           public string color { set; get; }
 
            public TemplateItem() { }
         /// <summary>
         /// 
         /// </summary>
-        /// <param name="_key">对于的keyword1等</param>
         /// <param name="_value">对于的keyword1等的值</param>
         /// <param name="_color">显示的颜色</param>
-        public TemplateItem(string _key, string _value, string _color)
+        public TemplateItem(string _value, string _color)
         {
-            this.Color = _color;
-            this.Key = _key;
-            this.Value = _value;
+            this.color = _color;
+            this.value = _value;
         }
     }
 }

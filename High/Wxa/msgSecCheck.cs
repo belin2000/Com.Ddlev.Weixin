@@ -32,12 +32,14 @@ namespace Com.Ddlev.Weixin.High.Wxa
         public msgSecCheckResponse send()
         {
             var token = new High.HightToken(c).Token;
-            string url = "https://api.weixin.qq.com/wxa/msg_sec_check?access_token="+token+ "&content="+content;
+            string url = "https://api.weixin.qq.com/wxa/msg_sec_check?access_token=" + token;
             return send(url);
         }
         public msgSecCheckResponse send(string url)
         {
-            return Newtonsoft.Json.JsonConvert.DeserializeObject<msgSecCheckResponse>(BaseClass.BaseMethod.WebRequestGet(url, Encoding.UTF8));
+            Dictionary<string, dynamic> dic = new Dictionary<string, dynamic>();
+            dic.Add("content", this.content);
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<msgSecCheckResponse>(BaseClass.BaseMethod.WebRequestPost(Newtonsoft.Json.JsonConvert.SerializeObject(dic), url, Encoding.UTF8));
 
         }
 

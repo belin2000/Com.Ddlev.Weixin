@@ -85,12 +85,14 @@
     <Compile Include="High\open\component\Verify.cs" />
     <Compile Include="High\Pay\Config.cs" />
     <Compile Include="High\Pay\coupon.cs" />
+    <Compile Include="High\Pay\GetPublicKey.cs" />
     <Compile Include="High\Pay\MicroPay.cs" />
     <Compile Include="High\Pay\OrderPara.cs" />
     <Compile Include="High\Pay\OrderQuery.cs" />
     <Compile Include="High\Pay\PayBack.cs" />
     <Compile Include="High\Pay\PayBase\OrderParaComm.cs" />
     <Compile Include="High\Pay\PayBase\WXComm.cs" />
+    <Compile Include="High\Pay\QueryBank.cs" />
     <Compile Include="High\Pay\RedPack.cs" />
     <Compile Include="High\Pay\Refund.cs" />
     <Compile Include="High\Pay\Sandbox\Config.cs" />
@@ -104,6 +106,7 @@
     <Compile Include="High\Pay\Unifiedorder\UOrderBase.cs" />
     <Compile Include="High\Pay\Unifiedorder\unifiedorder.cs" />
     <Compile Include="High\Pay\Unifiedorder\Wap_Info.cs" />
+    <Compile Include="High\Pay\WxToBank.cs" />
     <Compile Include="High\Qrcode\Qrcode.cs" />
     <Compile Include="High\ShakeAround\BindPage.cs" />
     <Compile Include="High\ShakeAround\DeletePage.cs" />

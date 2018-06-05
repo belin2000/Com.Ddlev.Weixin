@@ -13,7 +13,6 @@ namespace Com.Ddlev.Weixin.High
     /// </summary>
     public class HightToken:IFace.IRequest<HightTokenResponse>
     {
-        HttpContext _ct = null;
         static readonly object iso = new object();
         Config c;
         /// <summary>
@@ -71,14 +70,14 @@ namespace Com.Ddlev.Weixin.High
             var rs= send(url);
             if (!string.IsNullOrEmpty(rs.access_token) && rs.access_token != "")
             {
-                DataCacheConfig.GetHelper().Set(c.AppID + "_HightToken", rs.access_token, (Convert.ToInt32(rs.expires_in) - 200));
+                DataCacheConfig.GetHelper().Set(c.AppID + "_HightToken", rs.access_token, 3600);
             }
             return rs;
         }
         protected HightTokenResponse send(string url)
         {
             string json = BaseClass.BaseMethod.WebRequestGet(url, Encoding.Default);
-            HightTokenResponse ht = Newtonsoft.Json.JsonConvert.DeserializeObject< HightTokenResponse>(json);
+            HightTokenResponse ht = Newtonsoft.Json.JsonConvert.DeserializeObject<HightTokenResponse>(json);
             return ht;
         }
 

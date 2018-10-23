@@ -24,7 +24,7 @@ namespace Com.Ddlev.Weixin.High
         /// </summary>
         public string url { set; get; }
         /// <summary>
-        /// 跳小程序所需数据，不需跳小程序可不用传该数据
+        /// 跳小程序所需数据，不需跳小程序可不用传该数据（公众号跳小程序使用）
         /// </summary>
         public BaseClass.MiniProgram miniprogram { set; get; }
 

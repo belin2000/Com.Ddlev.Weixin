@@ -191,7 +191,7 @@ namespace Com.Ddlev.Weixin.BaseClass
     }
 
     /// <summary>
-    /// 配置小程序的appid和页面（用于信息推送，菜单和模版）
+    /// 配置小程序的appid和页面（用于信息推送，菜单和模版，不可以用于小程序）
     /// </summary>
     public class MiniProgram
     {

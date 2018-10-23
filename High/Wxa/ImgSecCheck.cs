@@ -6,6 +6,9 @@ using System.Threading.Tasks;
 
 namespace Com.Ddlev.Weixin.High.Wxa
 {
+    /// <summary>
+    /// 小程序内容检测（检查图片是否含有违法违规内容）
+    /// </summary>
     public class ImgSecCheckRequest : IFace.IRequest<ImgSecCheckResponse>
     {
         Config c;

@@ -34,14 +34,7 @@ namespace Com.Ddlev.Weixin
             string[] sd = { _c.Token, timestamp, nonce };
             Array.Sort(sd);
             string gdata = string.Join("", sd);
-            if (signature.ToLower().Equals(Com.Ddlev.Cryptography.Encrypt.SHA1(gdata), StringComparison.OrdinalIgnoreCase))
-            {
-                return echostr;
-            }
-            else
-            {
-                return "";
-            }
+            return signature.ToLower().Equals(Com.Ddlev.Cryptography.Encrypt.SHA1(gdata), StringComparison.OrdinalIgnoreCase) ? echostr : "";
         }
     }
 
